@@ -2,15 +2,13 @@ import React from "react";
 import { Card } from "semantic-ui-react";
 import "../stylesheets/Host.css";
 
-function Host({ hosts, host, selectedHost, setSelectedHost }) {
+function Host({ host, pickHost }) {
 
-  let { id, imageUrl, authorized } = host
-  
+  let { imageUrl, authorized } = host  
   const handleClick = () => {
-    setSelectedHost(host)
-    hosts.forEach(currentHost => currentHost.id === id ? currentHost.authorized = true 
-      : currentHost.authorized = false)
+    pickHost(host)
   }
+  
   return (
     <Card
       className={authorized ? "host selected" : "host"}

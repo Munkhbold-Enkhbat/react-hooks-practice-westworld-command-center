@@ -2,7 +2,7 @@ import React from "react";
 import { Segment } from "semantic-ui-react";
 import HostList from "./HostList";
 
-function ColdStorage({ nonActiveHosts, selectedHost, setSelectedHost, hosts }) {
+function ColdStorage({ nonActiveHosts, selectedHost, pickHost }) {
 
   return (
     <Segment.Group className="HQComps">
@@ -11,10 +11,8 @@ function ColdStorage({ nonActiveHosts, selectedHost, setSelectedHost, hosts }) {
       </Segment>
       <Segment compact>
         <HostList 
-          nonActiveHosts={nonActiveHosts}
-          selectedHost={selectedHost} 
-          setSelectedHost={setSelectedHost} 
-          hosts={hosts}
+          hosts={nonActiveHosts}
+          pickHost={pickHost} 
         />
       </Segment>
     </Segment.Group>

@@ -4,15 +4,14 @@ import Details from "./Details";
 import ColdStorage from "./ColdStorage"
 import "../stylesheets/Headquarters.css";
 
-function Headquarters({ hosts, setHosts, areas, nonActiveHosts, selectedHost, setSelectedHost }) {
+function Headquarters({ nonActiveHosts, setHosts, areas, selectedHost, pickHost }) {
   return (
     <Grid celled="internally">
       <Grid.Column width={8}>{/* Something goes here.... */}</Grid.Column>
         <ColdStorage 
-          hosts={hosts} 
-          nonActiveHosts={nonActiveHosts} 
+          nonActiveHosts={nonActiveHosts}
           selectedHost={selectedHost}
-          setSelectedHost={setSelectedHost}
+          pickHost={pickHost}
         />
       <Grid.Column width={5}>
         <Details selectedHost={selectedHost} areas={areas}/>

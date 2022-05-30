@@ -27,7 +27,7 @@ function App() {
 
   // console.log("Active hosts:", activeHosts);
   // console.log("Non-active hosts:", nonActiveHosts);
-  console.log("selected host:", selectedHost);
+  // console.log("selected host:", selectedHost);
 
   const updatedAreas = areas.map(area => {
     const strArr =area.name.split(/[_]/)
@@ -36,16 +36,21 @@ function App() {
     return ({...area, text: area_name, hosts: areaHosts})
   })
 
+  const pickHost = (host) => {
+    setSelectedHost(host)
+    hosts.forEach(currentHost => currentHost.id === host.id ? currentHost.authorized = true 
+      : currentHost.authorized = false)
+  }
+
   return (
     <Segment id="app">
-      <WestworldMap areas={updatedAreas} activeHosts={activeHosts}/>
+      <WestworldMap updatedAreas={updatedAreas} pickHost={pickHost}/>
       <Headquarters 
-        hosts={hosts} 
         areas={updatedAreas}
         setHosts={setHosts}
         nonActiveHosts={nonActiveHosts}
         selectedHost={selectedHost}
-        setSelectedHost={setSelectedHost}
+        pickHost={pickHost}
       />
     </Segment>
   );
