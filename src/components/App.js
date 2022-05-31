@@ -25,10 +25,6 @@ function App() {
   const activeHosts = hosts.filter(host => host.active)
   const nonActiveHosts = hosts.filter(host => !host.active)
 
-  // console.log("Active hosts:", activeHosts);
-  // console.log("Non-active hosts:", nonActiveHosts);
-  // console.log("selected host:", selectedHost);
-
   const updatedAreas = areas.map(area => {
     const strArr =area.name.split(/[_]/)
     const area_name = strArr.map(str => str[0].toUpperCase() + str.slice(1)).join(' ')
@@ -48,7 +44,6 @@ function App() {
   }
 
   function updateBackEnd(item) {
-    // console.log("updateBE:", item);
     fetch(`http://localhost:3001/hosts/${item.id}`, {
       method: 'PATCH',
       headers: {
@@ -76,8 +71,6 @@ function App() {
           return host
         } 
       })
-      console.log('activatedOnes:', activatedOnes);
-      console.log('selectedHost:', selectedHost);
       activatedOnes.forEach(host => chosenHost.id === host.id ? setSelectedHost(host) : host)
       setHosts(activatedOnes)
     } else {
@@ -89,8 +82,6 @@ function App() {
           return host
         } 
       })
-      console.log('nonActivedOnes:', nonActivedOnes);
-      console.log('selectedHost:', selectedHost);
       nonActivedOnes.forEach(host => chosenHost.id === host.id ? setSelectedHost(host) : host)
       setHosts(nonActivedOnes)
     }

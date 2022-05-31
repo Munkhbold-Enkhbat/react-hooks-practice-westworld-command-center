@@ -3,7 +3,6 @@ import { Card } from "semantic-ui-react";
 import Host from "./Host"
 
 function HostList({ hosts, pickHost }) {
-  // const nonActiveHosts = hosts.filter(host => !host.active)
 
   function renderHosts() {
     return hosts.map(host => {      

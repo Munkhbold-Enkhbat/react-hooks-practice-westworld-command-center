@@ -17,7 +17,7 @@
       "active": true,
       "imageUrl": "https://vignette.wikia.nocookie.net/westworld/images/b/b6/Bernard_Les_Ecorches.png/revision/latest/scale-to-width-down/310?cb=20180604190617",
       "gender": "Male",
-      "area": "under_construction",
+      "area": "lowlands",
       "authorized": false
     },
     {
@@ -37,7 +37,7 @@
       "active": true,
       "imageUrl": "https://vignette.wikia.nocookie.net/westworld/images/8/82/Akecheta_Kiksuya.jpg/revision/latest?cb=20180607183222",
       "gender": "Male",
-      "area": "high_plains",
+      "area": "lowlands",
       "authorized": false
     },
     {
@@ -137,7 +137,7 @@
       "active": true,
       "imageUrl": "https://vignette.wikia.nocookie.net/westworld/images/f/fe/203_Rebus.png/revision/latest/scale-to-width-down/310?cb=20180607104216",
       "gender": "Male",
-      "area": "python_pass",
+      "area": "lowlands",
       "authorized": false
     },
     {
@@ -147,7 +147,7 @@
       "active": true,
       "imageUrl": "https://vignette.wikia.nocookie.net/westworld/images/6/6b/Musashi_Akane_No_Mai.jpg/revision/latest/scale-to-width-down/310?cb=20180520131337",
       "gender": "Male",
-      "area": "badlands",
+      "area": "pariah",
       "authorized": false
     }
   ],
