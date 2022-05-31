@@ -9,15 +9,15 @@ import {
   Divider,
 } from "semantic-ui-react";
 import "../stylesheets/HostInfo.css";
-// import { Log } from "../services/Log";
+import { Log } from "../services/Log";
 
-function HostInfo({ selectedHost, areas, updateHost, setSelectedHost }) {
+function HostInfo({ selectedHost, areas, updateHost, setSelectedHost, addLog }) {
   // This state is just to show how the dropdown component works.
   // Options have to be formatted in this way (array of objects with keys of: key, text, value)
   // Value has to match the value in the object to render the right text.
 
   const { id, firstName, active, imageUrl, gender, area } = selectedHost
-  console.log("selectedHost from HostInfo:", selectedHost);
+  // console.log("selectedHost from HostInfo:", selectedHost);
 
   // IMPORTANT: But whether it should be stateful or not is entirely up to you. Change this component however you like.
   const [options] = useState(areas.map(area => (
@@ -25,15 +25,13 @@ function HostInfo({ selectedHost, areas, updateHost, setSelectedHost }) {
     ))
   );
 
-
-
   // const [value] = useState(area);
   // console.log("Value state:", value);
 
   function handleOptionChange(e, { value }) {
-    
+    // debugger
     const currentArea = areas.find(area => area.name === value)
-   
+    console.log("Current Area:", currentArea);
     if(currentArea.limit > currentArea.hosts.length) {
       fetch(`http://localhost:3001/hosts/${id}`, {
         method: 'PATCH',
@@ -47,9 +45,10 @@ function HostInfo({ selectedHost, areas, updateHost, setSelectedHost }) {
         .then(hostData => {
           setSelectedHost(hostData)
           updateHost(hostData)
+          addLog(Log.notify(`${firstName} set in area ${currentArea.text}`))
         })
     } else {
-      console.log("Error: Area limit is exceeds!")
+      addLog(Log.error(`Too many hosts. Cannot add ${firstName} to ${currentArea.text}`))
     }    
     // the 'value' attribute is given via Semantic's Dropdown component.
     // Put a debugger or console.log in here and see what the "value" variable is when you pass in different options.

@@ -62,7 +62,7 @@ function App() {
 
   function handleActivateBtn(e, chosenHost) {
     if(e.target.textContent === 'ACTIVATE ALL') {
-      // console.log("e.target.textContent:", e.target.textContent);
+      console.log("hosts:", hosts);
       const activatedOnes = hosts.map(host => {
         if(host.active === false)  {
           updateBackEnd(host)

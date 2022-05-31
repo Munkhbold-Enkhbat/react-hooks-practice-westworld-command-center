@@ -3,7 +3,7 @@ import { Segment, Image } from "semantic-ui-react";
 import * as Images from "../services/Images";
 import HostInfo from "./HostInfo"
 
-function Details({ selectedHost, setSelectedHost, areas, updateHost }) {
+function Details({ selectedHost, setSelectedHost, areas, updateHost, addLog }) {
   // We'll render the logo if no host is selected. But if a host does get selected....
   // Watch the video to see how this works in the app.
   return (
@@ -14,6 +14,7 @@ function Details({ selectedHost, setSelectedHost, areas, updateHost }) {
           setSelectedHost={setSelectedHost}
           areas={areas} 
           updateHost={updateHost}
+          addlog={addLog}
         /> : 
         <Image size="medium" src={Images.westworldLogo} />}
     </Segment>
