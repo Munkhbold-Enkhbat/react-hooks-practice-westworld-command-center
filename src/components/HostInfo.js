@@ -15,7 +15,7 @@ function HostInfo({ selectedHost, areas, updateHost, setSelectedHost }) {
   // Options have to be formatted in this way (array of objects with keys of: key, text, value)
   // Value has to match the value in the object to render the right text.
   const { id, firstName, active, imageUrl, gender, area } = selectedHost
-  console.log("Selected host:", selectedHost);
+  // console.log("Selected host:", selectedHost);
   // IMPORTANT: But whether it should be stateful or not is entirely up to you. Change this component however you like.
   const [options] = useState(areas.map(area => (
     { key: area.name, text: area.text, value: area.name}

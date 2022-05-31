@@ -2,7 +2,7 @@ import React from "react";
 import { Segment, Button } from "semantic-ui-react";
 import { Log } from "../services/Log";
 
-function LogPanel({ nonActiveHosts }) {
+function LogPanel({ nonActiveHosts, handleActivateBtn, selectedHost }) {
 
   let thereIsNoActiveHosts = nonActiveHosts.length === 0 ? true : false
 
@@ -23,7 +23,7 @@ function LogPanel({ nonActiveHosts }) {
 
   const handleClick = (e) => {
     thereIsNoActiveHosts = !thereIsNoActiveHosts
-    // handleActivateBtn(e)
+    handleActivateBtn(e, selectedHost)
   }
 
   return (
@@ -41,8 +41,9 @@ function LogPanel({ nonActiveHosts }) {
       {/* Should the button always read "ACTIVATE ALL"? When should it read "DECOMMISSION ALL"? */}
       <Button fluid 
         color={thereIsNoActiveHosts ? "green" : "red"} 
-        content={thereIsNoActiveHosts ? "DECOMMISSION ALL" : "ACTIVATE ALL"}/>
+        content={thereIsNoActiveHosts ? "DECOMMISSION ALL" : "ACTIVATE ALL"}
         onClick={handleClick}
+      />        
     </Segment>
   );
 }
