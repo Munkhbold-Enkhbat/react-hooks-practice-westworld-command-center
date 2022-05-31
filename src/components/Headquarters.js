@@ -2,15 +2,15 @@ import React, { useState } from "react";
 import { Grid } from "semantic-ui-react";
 import Details from "./Details";
 import ColdStorage from "./ColdStorage"
-import "../stylesheets/Headquarters.css";
 import LogPanel from "./LogPanel"
+import "../stylesheets/Headquarters.css";
 
 function Headquarters({ nonActiveHosts, areas, selectedHost, setSelectedHost, pickHost, updateHost, handleActivateBtn }) {
   
   const [logs, setLogs] = useState([])
 
-  const addLog = (log) => {
-    setLogs([...logs, log])
+  function addLog(log) {
+    setLogs([log, ...logs])
   }
 
   return (

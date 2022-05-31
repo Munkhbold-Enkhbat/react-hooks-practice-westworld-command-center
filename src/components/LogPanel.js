@@ -6,21 +6,6 @@ function LogPanel({ nonActiveHosts, handleActivateBtn, selectedHost, addLog, log
 
   let isAllHostsActive = nonActiveHosts.length === 0 ? true : false
 
-  // function dummyLogs() {
-    // This is just to show you how this should work. But where should the log data actually get stored?
-    // And where should we be creating logs in the first place?
-    // Use the Log Service class (located in: 'src/services/Log') we've created anywhere you like.
-    // Just remember to import it
-
-  //   let logs = [];
-
-  //   logs.unshift(Log.warn("This is an example of a warn log"));
-  //   logs.unshift(Log.notify("This is an example of a notify log"));
-  //   logs.unshift(Log.error("This is an example of an error log"));
-
-  //   return logs;
-  // }
-
   const handleClick = (e) => {
     isAllHostsActive = !isAllHostsActive
     isAllHostsActive ? addLog(Log.notify("Decommissiong all hosts.")) : 
@@ -37,10 +22,6 @@ function LogPanel({ nonActiveHosts, handleActivateBtn, selectedHost, addLog, log
           </p>
         ))}
       </pre>
-
-      {/* Button below is the Activate All/Decommission All button */}
-      {/* This isn't always going to be the same color...*/}
-      {/* Should the button always read "ACTIVATE ALL"? When should it read "DECOMMISSION ALL"? */}
       <Button fluid 
         color={isAllHostsActive ? "green" : "red"} 
         content={isAllHostsActive ? "DECOMMISSION ALL" : "ACTIVATE ALL"}
