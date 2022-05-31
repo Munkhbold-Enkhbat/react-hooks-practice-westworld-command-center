@@ -42,6 +42,11 @@ function App() {
       : currentHost.authorized = false)
   }
 
+  const updateHost = (chosenHost) => {
+    const reNewedHosts = hosts.map(host => host.id === chosenHost.id ? chosenHost : host)
+    setHosts(reNewedHosts)
+  }
+
   return (
     <Segment id="app">
       <WestworldMap updatedAreas={updatedAreas} pickHost={pickHost}/>
@@ -50,7 +55,9 @@ function App() {
         setHosts={setHosts}
         nonActiveHosts={nonActiveHosts}
         selectedHost={selectedHost}
+        setSelectedHost={setSelectedHost}
         pickHost={pickHost}
+        updateHost={updateHost}
       />
     </Segment>
   );
