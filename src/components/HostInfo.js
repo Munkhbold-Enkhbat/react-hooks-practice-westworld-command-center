@@ -9,6 +9,7 @@ import {
   Divider,
 } from "semantic-ui-react";
 import "../stylesheets/HostInfo.css";
+// import { Log } from "../services/Log";
 
 function HostInfo({ selectedHost, areas, updateHost, setSelectedHost }) {
   // This state is just to show how the dropdown component works.
@@ -16,12 +17,15 @@ function HostInfo({ selectedHost, areas, updateHost, setSelectedHost }) {
   // Value has to match the value in the object to render the right text.
 
   const { id, firstName, active, imageUrl, gender, area } = selectedHost
+  console.log("selectedHost from HostInfo:", selectedHost);
 
   // IMPORTANT: But whether it should be stateful or not is entirely up to you. Change this component however you like.
   const [options] = useState(areas.map(area => (
       { key: area.name, text: area.text, value: area.name}
     ))
   );
+
+
 
   // const [value] = useState(area);
   // console.log("Value state:", value);

@@ -5,7 +5,6 @@ import Area from "./Area"
 function WestworldMap({ updatedAreas, pickHost }) {
   
   const areaList = updatedAreas.map(area => {
-    // console.log("Area from WWM:", area);
     return <Area key={area.id} area={area} pickHost={pickHost}/>
   })
 
