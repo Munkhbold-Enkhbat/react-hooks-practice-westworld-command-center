@@ -2,7 +2,7 @@ import React from "react";
 import { Segment } from "semantic-ui-react";
 import HostList from "./HostList";
 
-function ColdStorage({ nonActiveHosts, selectedHost, pickHost }) {
+function ColdStorage({ nonActiveHosts, pickHost }) {
 
   return (
     <Segment.Group className="HQComps">
