@@ -14,7 +14,7 @@ function HostInfo({ selectedHost, areas, updateHost, setSelectedHost }) {
   // This state is just to show how the dropdown component works.
   // Options have to be formatted in this way (array of objects with keys of: key, text, value)
   // Value has to match the value in the object to render the right text.
-  const { id, firstName, active, imageUrl, gender, area, authorized } = selectedHost
+  const { id, firstName, active, imageUrl, gender, area } = selectedHost
   console.log("Selected host:", selectedHost);
   // IMPORTANT: But whether it should be stateful or not is entirely up to you. Change this component however you like.
   const [options] = useState(areas.map(area => (
@@ -24,9 +24,22 @@ function HostInfo({ selectedHost, areas, updateHost, setSelectedHost }) {
   //   { key: "another_area", text: "Another Area", value: "another_area" },
   );
 
-  const [value] = useState(area);
+  // const [value] = useState(area);
 
   function handleOptionChange(e, { value }) {
+    fetch(`http://localhost:3001/hosts/${id}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        area: value
+      })
+    }).then(res => res.json())
+      .then(hostData => {
+        setSelectedHost(hostData)
+        updateHost(hostData)
+      })
     // the 'value' attribute is given via Semantic's Dropdown component.
     // Put a debugger or console.log in here and see what the "value" variable is when you pass in different options.
     // See the Semantic docs for more info: https://react.semantic-ui.com/modules/dropdown/#usage-controlled
