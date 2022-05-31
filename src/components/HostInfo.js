@@ -56,8 +56,8 @@ function HostInfo({ selectedHost, areas, updateHost, setSelectedHost, addLog }) 
       .then(hostData => {
         setSelectedHost(hostData)
         updateHost(hostData) 
-        let status = !active ? 'activated.' : 'disactivated.'
-        addLog(Log.notify(`${firstName} is ${status}`))
+        let status = !active ? 'Activated' : 'Decommissioned'
+        addLog(Log.notify(`${status} ${firstName}.`))
       })
 
   }
