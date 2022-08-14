@@ -61,7 +61,9 @@ function App() {
   }
 
   function handleActivateBtn(e, chosenHost) {
-    if(e.target.textContent === 'ACTIVATE ALL') {
+    console.log("Hosts:", hosts)
+    debugger
+    if(e.target.innerText === 'ACTIVATE ALL') {
       const activatedOnes = hosts.map(host => {
         if(host.active === false)  {
           updateBackEnd(host)
@@ -70,8 +72,13 @@ function App() {
           return host
         } 
       })
-      activatedOnes.forEach(host => chosenHost.id === host.id ? setSelectedHost(host) : host)
-      setHosts(activatedOnes)
+      if(chosenHost === null) {
+        setHosts(activatedOnes)
+      } else {
+        activatedOnes.forEach(host => chosenHost.id === host.id ? setSelectedHost(host) : host)
+        setHosts(activatedOnes)
+      }
+      
     } else {
       const nonActivedOnes = hosts.map(host => {
         if(host.active === true)  {
@@ -81,8 +88,12 @@ function App() {
           return host
         } 
       })
-      nonActivedOnes.forEach(host => chosenHost.id === host.id ? setSelectedHost(host) : host)
-      setHosts(nonActivedOnes)
+      if(chosenHost === null) {
+        setHosts(nonActivedOnes)
+      } else {
+        nonActivedOnes.forEach(host => chosenHost.id === host.id ? setSelectedHost(host) : host)
+        setHosts(nonActivedOnes)
+      }      
     }
   }
 
